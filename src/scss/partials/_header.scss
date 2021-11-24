@@ -1,0 +1,253 @@
+.header{
+	&--transparent{
+		background-color: transparent;
+		position: absolute;
+		z-index: 99;
+		width: 100%;
+	}
+	&--fixed{
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 99;
+		background-color: $body_bg;
+		box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	}
+	&__drop-down{
+		margin-left: auto;
+		position: relative;
+		width: 35px;
+		height: 27px;
+		cursor: pointer;
+		&__wrap{
+			display: flex;
+			height: 100%;
+			align-items: center;
+		}
+		span{
+			display: block;
+			position: absolute;
+			left: 0;
+			height: 3px;
+			transition: .1s ease-in-out;
+			background-color: #4A3458;
+
+			&:nth-child(1) {
+				top: 0;
+				width: 100%;
+			}
+			&:nth-child(2) {
+				top: 48%;
+				width: 100%;
+				transform: translateY(-50%);
+			}
+			&:nth-child(3) {
+				bottom: 1px;
+				width: 100%;
+			}
+		}
+	}
+	&__inner{
+		padding: 30px 0;
+		@include rmax(992){
+			padding: 15px 0;
+		}
+	}
+	&__logo{
+		display: flex;
+		align-items: center;
+		height: 100%;
+		max-width: 95px;
+		width: 100%;
+		img{
+			flex-shrink: 0;
+		}
+		flex-shrink: 0;
+	}
+	&__nav{
+		height: 100%;
+		ul{
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+			column-gap: 30px;
+			li{
+				a{
+					position: relative;
+					color: #4A3458;
+					font-size: 18px;
+					font-style: normal;
+					font-weight: 400;
+					line-height: 26px;
+					letter-spacing: 0em;
+					text-align: center;
+					transition: all 0.3s ease-in-out;
+					@include rmax(1280){
+						font-size: 16px;
+					}
+					&:hover{
+						font-weight: 500;
+					}
+					&.current{
+						font-weight: 500;
+						&:after{
+							content: '';
+							display: inline-block;
+							top: calc(100% + 5px);
+							left: 50%;
+							transform: translateX(-50%);
+							position: absolute;
+							width: 10px;
+							height: 10px;
+							border-radius: 100%;
+							background-color: #FF00FF;
+						}
+					}
+				}
+			}
+		}
+	}
+	&__buttons{
+		display: flex;
+		justify-content: flex-end;
+		column-gap: 20px;
+		@include rmax(1280){
+			column-gap: 10px;
+		}
+	}
+}
+.mobile-menu{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	max-width: 480px;
+	height: 100vh;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	background-color: #fff;
+	transition-duration: .2s;
+	transition-property: all;
+	transition-timing-function: linear;
+	opacity: 0;
+	visibility: hidden;
+	z-index: -1;
+	&.open{
+		z-index: 1000;
+		opacity: 1;
+		visibility: visible;
+	}
+	&__inner{
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		overflow-y: auto;
+		height: 100%;
+	}
+	&__close{
+		position: absolute;
+		top: 30px;
+		right: 30px;
+		cursor: pointer;
+	}
+	&__info{
+		border-top: 1px solid #797979;
+		padding: 25px 0 45px;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background-color: #fff;
+		&--title{
+			font-size: 18px;
+			font-weight: 400;
+			line-height: 130%;
+			letter-spacing: 0em;
+			text-align: center;
+			color: #797979;
+			margin-bottom: 20px;
+		}
+		&--btn-wrap{
+			margin: 0 auto;
+			text-align: center;
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+			column-gap: 10px;
+			row-gap: 10px;
+		}
+	}
+	&__content{
+		padding: 100px 83px 165px 83px;
+		@include rmax(768){
+			padding: 50px 50px 165px 40px;
+		}
+		@include rmax(575){
+			padding: 50px 30px 165px 30px;
+		}
+	}
+	ul{
+		&:first-child{
+			margin-bottom: 52px;
+			@include rmax(768){
+				margin-bottom: 35px;
+			}
+			@include rmax(575){
+				margin-bottom: 25px;
+			}
+			li{
+				&:not(:last-child){
+					margin-bottom: 30px;
+					@include rmax(768){
+						margin-bottom: 20px;
+					}
+					@include rmax(575){
+						margin-bottom: 15px;
+					}
+				}
+			}
+			a{
+				color: $colorDarkGrey;
+				font-size: 24px;
+				font-weight: 400;
+				line-height: 120%;
+				letter-spacing: 0em;
+				@include rmax(768){
+					font-size: 20px;
+				}
+				@include rmax(575){
+					font-size: 18px;
+				}
+			}
+		}
+		margin-bottom: 52px;
+		@include rmax(768){
+			margin-bottom: 35px;
+		}
+		@include rmax(575){
+			margin-bottom: 25px;
+		}
+		li{
+			&:not(:last-child){
+				margin-bottom: 20px;
+				@include rmax(768){
+					margin-bottom: 15px;
+				}
+				@include rmax(575){
+					margin-bottom: 10px;
+				}
+			}
+			a{
+				font-size: 18px;
+				font-weight: 400;
+				line-height: 130%;
+				color: #797979;
+				@include rmax(768){
+					margin-bottom: 16px;
+				}
+
+			}
+		}
+	}
+}

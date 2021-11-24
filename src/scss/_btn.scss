@@ -1,0 +1,67 @@
+.btn {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	height: 60px;
+	color: $colorBlack;
+	font-size: 16px;
+	font-weight: 700;
+	text-transform: capitalize;
+	font-family: 'Roboto', sans-serif;
+	line-height: 40px;
+	text-align: center;
+	text-decoration: none;
+	padding: 0 15px;
+	transition: all 0.3s ease;
+	outline: none;
+	cursor: pointer;
+	border-radius: 100px;
+	border: none;
+	min-width: 180px;
+	i{
+		margin-right: 11px;
+	}
+	&:hover,
+	&:active{
+		color: $colorWhite;
+		outline: none;
+		-webkit-animation-name: hvr-push;
+		animation-name: hvr-push;
+		-webkit-animation-duration: 0.3s;
+		animation-duration: 0.3s;
+		-webkit-animation-timing-function: linear;
+		animation-timing-function: linear;
+		-webkit-animation-iteration-count: 1;
+		animation-iteration-count: 1;
+	}
+	&:focus{
+		outline: none;
+	}
+
+	&.disabled,
+	&[disabled]{
+		pointer-events: none;
+		opacity: 0.5;
+		cursor: auto;
+	}
+	&_color{
+		&_pink{
+			background-color: $colorPink;
+			color: $colorWhite;
+		}
+		&_orange{
+			background-color: $colorOrange;
+			color: $colorWhite;
+		}
+	}
+}
+
+@keyframes hvr-push {
+	50%{
+		transform: scale(0.8);
+	}
+	100%{
+		transform: scale(1);
+	}
+}
